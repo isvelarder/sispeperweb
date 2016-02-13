@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BAD436CE-1567-4D61-9C06-CD0B32C0A8B1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BusinessEntities</RootNamespace>
+    <AssemblyName>BusinessEntities</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DataAnnotationsExtensions">
+      <HintPath>..\packages\DataAnnotationsExtensions.1.1.0.0\lib\NETFramework40\DataAnnotationsExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Generics\BESVMC_COND_PAGO.cs" />
+    <Compile Include="Generics\BESVMC_MODE_ARTI.cs" />
+    <Compile Include="Generics\BESVMC_MONE.cs" />
+    <Compile Include="Generics\BESVMC_PROY.cs" />
+    <Compile Include="Generics\BESVMC_SERI_CORR.cs" />
+    <Compile Include="Generics\BESVMC_TIPO_ARTI.cs" />
+    <Compile Include="Generics\BESVMC_TIPO_CONT.cs" />
+    <Compile Include="Generics\BESVMC_TIPO_DOCU.cs" />
+    <Compile Include="Generics\BESVMC_TIPO_IDEN.cs" />
+    <Compile Include="Generics\BESVMC_TIPO_SOCI.cs" />
+    <Compile Include="Generics\Numalet.cs" />
+    <Compile Include="Management\BESVMC_SOCI_NEGO.cs" />
+    <Compile Include="Management\BESVMC_TIPO_CAMB.cs" />
+    <Compile Include="Management\BESVMD_SOCI_NEGO_CONT.cs" />
+    <Compile Include="Management\BESVMD_SOCI_NEGO_SUCU.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Purchase\BEConceptsNationalization.cs" />
+    <Compile Include="Purchase\BEDocument.cs" />
+    <Compile Include="Purchase\BEDocumentExpenses.cs" />
+    <Compile Include="Purchase\BEDocumentLines.cs" />
+    <Compile Include="Purchase\BEStatus.cs" />
+    <Compile Include="Purchase\_Message.cs" />
+    <Compile Include="Report\BEKardexInventory.cs" />
+    <Compile Include="Report\BEReport.cs" />
+    <Compile Include="Report\BEStockInventory.cs" />
+    <Compile Include="Report\BEStockValued.cs" />
+    <Compile Include="Sales\BESVMC_SUCU.cs" />
+    <Compile Include="Sales\BESVTC_COTI.cs" />
+    <Compile Include="Sales\BESVTC_OVEN.cs" />
+    <Compile Include="Sales\BESVTD_COTI.cs" />
+    <Compile Include="Sales\BESVTD_COTI_GROU.cs" />
+    <Compile Include="Sales\BESVTD_OVEN.cs" />
+    <Compile Include="Sales\BESVTD_OVEN_GROU.cs" />
+    <Compile Include="Security\BESVMC_BUTT.cs" />
+    <Compile Include="Security\BESVMC_COMP.cs" />
+    <Compile Include="Security\BESVMC_MAIN_MENU.cs" />
+    <Compile Include="Security\BESVMC_OPCI.cs" />
+    <Compile Include="Security\BESVMC_PERF.cs" />
+    <Compile Include="Security\BESVMC_USUA.cs" />
+    <Compile Include="Security\BESVMD_ACCE.cs" />
+    <Compile Include="Ubigeo\BESVMC_DEPA.cs" />
+    <Compile Include="Ubigeo\BESVMC_DIST.cs" />
+    <Compile Include="Ubigeo\BESVMC_PAIS.cs" />
+    <Compile Include="Ubigeo\BESVMC_PROV.cs" />
+    <Compile Include="Warehouse\BEArticle.cs" />
+    <Compile Include="Warehouse\BEBusinessPartner.cs" />
+    <Compile Include="Warehouse\BEEntryGoods.cs" />
+    <Compile Include="Warehouse\BEEntryGoodsDetail.cs" />
+    <Compile Include="Warehouse\BEModelArticle.cs" />
+    <Compile Include="Warehouse\BEOutputGoods.cs" />
+    <Compile Include="Warehouse\BEOutputGoodsDetail.cs" />
+    <Compile Include="Warehouse\BEPriceList.cs" />
+    <Compile Include="Warehouse\BEPriceListDetail.cs" />
+    <Compile Include="Warehouse\BEReason.cs" />
+    <Compile Include="Warehouse\BEReceivingGoods.cs" />
+    <Compile Include="Warehouse\BEReceivingGoodsDetail.cs" />
+    <Compile Include="Warehouse\BESVMC_ARTI.cs" />
+    <Compile Include="Warehouse\BETransferGoods.cs" />
+    <Compile Include="Warehouse\BETransferGoodsDetail.cs" />
+    <Compile Include="Warehouse\BETypeArticle.cs" />
+    <Compile Include="Warehouse\BETypeReason.cs" />
+    <Compile Include="Warehouse\BEWarehouse.cs" />
+    <Compile Include="Warehouse\WhMessage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

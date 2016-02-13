@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DF938CC0-9AA5-4C33-846D-C16006C6063E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BusinessRules</RootNamespace>
+    <AssemblyName>BusinessRules</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ResultSetMappers">
+      <HintPath>..\..\..\..\COMPILAR\SISPEPERSPROD\SISPEPERS\BusinessRules\bin\Debug\ResultSetMappers.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Generics\BRSVMC_COND_PAGO.cs" />
+    <Compile Include="Generics\BRSVMC_MODE_ARTI.cs" />
+    <Compile Include="Generics\BRSVMC_MONE.cs" />
+    <Compile Include="Generics\BRSVMC_MOTI.cs" />
+    <Compile Include="Generics\BRSVMC_PROY.cs" />
+    <Compile Include="Generics\BRSVMC_SERI_CORR.cs" />
+    <Compile Include="Generics\BRSVMC_SUCU.cs" />
+    <Compile Include="Generics\BRSVMC_TIPO_ARTI.cs" />
+    <Compile Include="Generics\BRSVMC_TIPO_CONT.cs" />
+    <Compile Include="Generics\BRSVMC_TIPO_DOCU.cs" />
+    <Compile Include="Generics\BRSVMC_TIPO_IDEN.cs" />
+    <Compile Include="Generics\BRSVMC_TIPO_SOCI.cs" />
+    <Compile Include="Management\BRSVMC_SOCI_NEGO.cs" />
+    <Compile Include="Management\BRSVMC_TIPO_CAMB.cs" />
+    <Compile Include="Management\BRSVMD_SOCI_NEGO_CONT.cs" />
+    <Compile Include="Management\BRSVMD_SOCI_NEGO_SUCU.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Purchase\BRPurchase.cs" />
+    <Compile Include="Report\BRReportPurchase.cs" />
+    <Compile Include="Report\BRSales.cs" />
+    <Compile Include="Report\BRStockInventory.cs" />
+    <Compile Include="Sales\BRSVTC_COTI.cs" />
+    <Compile Include="Sales\BRSVTC_OVEN.cs" />
+    <Compile Include="Sales\BRSVTD_COTI.cs" />
+    <Compile Include="Sales\BRSVTD_COTI_GROU.cs" />
+    <Compile Include="Sales\BRSVTD_COTI_GROU_DETA.cs" />
+    <Compile Include="Sales\BRSVTD_OVEN.cs" />
+    <Compile Include="Sales\BRSVTD_OVEN_GROU.cs" />
+    <Compile Include="Sales\BRSVTD_OVEN_GROU_DETA.cs" />
+    <Compile Include="Security\BRCryptography.cs" />
+    <Compile Include="Security\BRSVMC_BUTT.cs" />
+    <Compile Include="Security\BRSVMC_COMP.cs" />
+    <Compile Include="Security\BRSVMC_MAIN.cs" />
+    <Compile Include="Security\BRSVMC_OPCI.cs" />
+    <Compile Include="Security\BRSVMC_PERF.cs" />
+    <Compile Include="Security\BRSVMC_USUA.cs" />
+    <Compile Include="Security\BRSVMD_ACCE.cs" />
+    <Compile Include="Tool\BRNumLetter.cs" />
+    <Compile Include="Ubigeo\BRSVMC_DEPA.cs" />
+    <Compile Include="Ubigeo\BRSVMC_DIST.cs" />
+    <Compile Include="Ubigeo\BRSVMC_PAIS.cs" />
+    <Compile Include="Ubigeo\BRSVMC_PROV.cs" />
+    <Compile Include="Warehouse\BRArticle.cs" />
+    <Compile Include="Warehouse\BREntryGoods.cs" />
+    <Compile Include="Warehouse\BRModelArticle.cs" />
+    <Compile Include="Warehouse\BROutputGoods.cs" />
+    <Compile Include="Warehouse\BRReason.cs" />
+    <Compile Include="Warehouse\BRReceivingGoods.cs" />
+    <Compile Include="Warehouse\BRSVMC_ARTI.cs" />
+    <Compile Include="Warehouse\BRTransferGoods.cs" />
+    <Compile Include="Warehouse\BRTypeArticle.cs" />
+    <Compile Include="Warehouse\BRTypeReason.cs" />
+    <Compile Include="Warehouse\BRWarehouse.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessEntities\BusinessEntities.csproj">
+      <Project>{bad436ce-1567-4d61-9c06-cd0b32c0a8b1}</Project>
+      <Name>BusinessEntities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{df648a25-6ad8-465d-8ea2-c23fe8232796}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html ng-app="pper">
+<head>
+    <title>::::::PUNTO SEGURO::::::</title>
+    <script type="text/javascript" src="Scripts/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="Scripts/AngularJS/angular.min.js"></script>
+    <script type="text/javascript" src="Scripts/AngularJS/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="Scripts/jquery.globalize/globalize.min.js"></script>
+    <script type="text/javascript" src="Scripts/dx.all.js"></script>
+    <script type="text/javascript" src="Scripts/dx.webappjs.js"></script>
+    <script type="text/javascript" src="Scripts/devextreme-modules/dx.module-widgets-base.js"></script>
+    <script type="text/javascript" src="Scripts/devextreme-modules/dx.module-widgets-web.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <link rel="stylesheet" type="text/css" href="Content/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="Content/dx.iq.css" />
+    <link rel="stylesheet" type="text/css" href="Content/Login.css" />
+</head>
+<body>
+    <section class="layout-navigation">
+        <div class="alpha">
+            <div style="height:175px; padding-top:75px; padding-left:20px; padding-right:20px">
+                <table style="width:406px">
+                    <tr>
+                        <td style="width:20px">&nbsp;</td>
+                        <td style="width:356px">
+                            <div id="txtUser" style="width: 356px"></div>
+                        </td>
+                        <td style="width:20px">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td style="width:20px">&nbsp;</td>
+                        <td style="width:356px">
+                            <div id="txtPassword" style="width: 356px"></div>
+                        </td>
+                        <td style="width:20px">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td style="width:20px">&nbsp;</td>
+                        <td style="width:356px">
+                            <table style="width:356px">
+                                <tr>
+                                    <td style="width:150px; padding-top:2px">
+                                        <img id="imgCaptcha" width="150" height="35" />
+                                    </td>
+                                    <td style="width:50px">
+                                        <div ng-controller="CaptchaController">
+                                            <div dx-button="{ text: '', clickAction: Get_Captcha, icon: 'refresh', width: 44, hint: 'Refrescar' }"></div>
+                                        </div>
+                                    </td>
+                                    <td style="width:156px">
+                                        <div id="txtCaptcha" style="width:156px"></div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td style="width:20px">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td style="width:20px">&nbsp;</td>
+                        <td style="width:356px;text-align:right; padding-right:3px">
+                            <div ng-controller="SessionController">
+                                <div dx-button="{ text: 'Iniciar Sesión', clickAction: Get_Login, width: 156, icon: 'key' }"></div>
+                            </div>
+                        </td>
+                        <td style="width:20px">&nbsp;</td>
+                    </tr>
+                    <tr class="rowSeparator1"><td colspan="3"></td></tr>
+                    <tr>
+                        <td style="width:20px">&nbsp;</td>
+                        <td style="width:356px;text-align:right;">
+                            <div id="toastContainer"></div>
+                            <div id="loadContainer"></div>
+                        </td>
+                        <td style="width:20px">&nbsp;</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

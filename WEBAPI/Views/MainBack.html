@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html ng-app="pper">
+<head>
+    <title>::::::PUNTO SEGURO::::::</title>
+    <script type="text/javascript" src="../Scripts/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery-ui.js"></script>
+    <script type="text/javascript" src="../Scripts/date.js"></script>
+    <script type="text/javascript" src="../Scripts/AngularJS/angular.min.js"></script>
+    <script type="text/javascript" src="../Scripts/AngularJS/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="../Scripts/AngularJS/angular-route.min.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery.globalize/globalize.min.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery.globalize/cultures/globalize.culture.es-PE.js"></script>
+    <script type="text/javascript" src="../Scripts/dx.all.js"></script>
+    <script type="text/javascript" src="../Scripts/dx.webappjs.js"></script>
+    <script type="text/javascript" src="../Scripts/devextreme-localization/dx.webappjs.es.js"></script>
+    <script type="text/javascript" src="../Scripts/devextreme-modules/dx.module-widgets-base.js"></script>
+    <script type="text/javascript" src="../Scripts/devextreme-modules/dx.module-widgets-web.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery.isloading.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery.browser.min.js"></script>
+    <script type="text/javascript" src="../js/Main.js"></script>
+    <script type="text/javascript" src="../js/defaultController.js"></script>
+    <script type="text/javascript" src="../js/sales/controllerQuote.js"></script>
+    <script type="text/javascript" src="../js/sales/controllerSalesOrder.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../Content/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="../Content/dx.iq.css" />
+    <link rel="stylesheet" type="text/css" href="../Content/Main.css" />
+    <link rel="stylesheet" type="text/css" href="../Content/MainSecond.css" />
+    <link rel="stylesheet" type="text/css" href="../Scripts/jquery-ui.css" />
+
+    <link href="../Slider/lessBundle2.css" rel="stylesheet" />
+    <link href="../Slider/viewsLessBundle.css" rel="stylesheet" />
+    <link href="../Slider/bigLessBundle2.css" rel="stylesheet" />
+    <link href="../Slider/bigRetinaLessBundle2.css" rel="stylesheet" />
+    <script src="../Slider/jsBundle2.js"></script>
+</head>
+<body>
+    <div id="header">
+        <div class="menu-button">
+            <div class="menu-image"></div>
+        </div>
+        <a class="logo devextreme" href=""></a>
+        <div class="userlogout" ng-controller="LoginController">
+            Bienvenido: <span class="dx-icon-user icon" style="cursor:default;"></span>&nbsp;<b>{{ UserName }}!</b>
+            <a href="" class="dx-icon-logout icon" title="Logout" ng-click="logout()"></a>
+        </div>
+        <div class="chat disabled">
+            <b style="color:#EA4444"><span id="titleform"></span></b>
+        </div>
+    </div>
+    <div id="body" class="transition overlay-active ">
+        <div id="sideMenu">
+            <div class="side-menu-inner" ng-controller="MainController">
+                <div id="gdvMain" dx-data-grid="{   scrolling: {
+                                                        mode: 'standard'
+                                                    },
+                                                    width: '100%',
+                                                    grouping: {
+                                                        autoExpandAll: false,
+                                                    },
+                                                    showColumnHeaders: false,
+                                                    paging: {
+                                                        enabled: false
+                                                    },
+                                                    sorting: {
+                                                        mode: 'none'
+                                                    },
+                                                    groupPanel: {
+                                                        visible: false
+                                                    },
+                                                    loadPanel: { enabled: false },
+                                                    showRowLines: true,
+                                                    hoverStateEnabled: true,
+                                                    columns: [
+                                                        { dataField: 'ALF_DESC_MOST_FORM', caption: 'Formulario', encodeHtml: false, allowSorting: false, cellTemplate: cellTemplatehref },
+                                                        { dataField: 'ALF_DESC_MOST_GRUP', caption: 'Grupo', groupIndex: 0 }
+                                                    ],
+                                                    customizeColumns: customizeGroupText
+                                   }">
+                </div>
+            </div>
+        </div>
+        <div id="menuHider"></div>
+        <div id="mainContent" class="main-content1" ng-view>
+        </div>
+        <div id="toastContainer"></div>
+        <div id="loadContainer"></div>
+    </div>
+    <script>
+        $(function () {
+            Site.initialize();
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,42 @@
+﻿*{
+    margin:0;
+    padding:0;
+}
+body {
+    background-color: #FBFBFB;
+    color: #111;
+    font-family:Georgia, Cambria, "Times New Roman", Times, serif;
+}
+h1{
+    font-size:2em;
+    line-height:1em;
+    margin-top:1em;
+}
+.alpha{
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0 0 10px 0 #5c5d5f;
+    -webkit-box-shadow: 0 0 10px 0 #5c5d5f;
+    box-shadow: 0 0 10px 0 #5c5d5f;
+
+    background-image:url(../Images/Login.png);
+    height: 309px;
+    width: 446px;
+    display:none; 
+}
+.rowSeparator{
+    height: 6px;
+}
+.rowSeparator1{
+    height: 10px;
+}
+.msgText {
+    width: 240px;
+    padding-left: 5px; 
+    padding-right: 5px; 
+    -ms-word-break: break-all; 
+    word-break: break-all;
+    max-width:240px;
+    text-align:center;
+}

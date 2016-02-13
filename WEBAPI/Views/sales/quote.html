@@ -1,0 +1,387 @@
+﻿<div ng-controller="controllerQuote">
+    <div id="Filter" style="border:3px outset #e7e9ed">
+        <div class="ContentTable">
+            <div>
+                <div class="ContentLabelIFree">
+                    RUC/DNI:
+                </div>
+                <div class="ContentInputI">
+                    <div id="txtALF_NUM_DOCU" dx-text-box="{width:150}"></div>
+                </div>
+                <div class="ContentLabelIFree">
+                    Desde:
+                </div>
+                <div class="ContentInputI">
+                    <div id="deFEC_DESD" dx-date-box="{width:150,value:date}"></div>
+                </div>
+                <div class="ContentLabelIFree">
+                    Hasta:
+                </div>
+                <div class="ContentInputI">
+                    <div id="deFEC_HAST" dx-date-box="{width:150,value:date}"></div>
+                </div>
+                <div class="ContentButton">
+                    <div dx-button="{
+                         hint: 'Buscar',
+                         onClick: GetSearchQuote,
+                         icon:'psSearch',
+                         width: 50
+                         }"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="gdvQuote"
+         dx-data-grid="{
+                columns: [{
+                dataField: 'COD_COTI',
+                caption:' ',
+                width: 100,
+                alignment: 'center',
+                cellTemplate: cellTemplate,
+                allowSorting: false
+            },{
+                dataField: 'COD_COTI',
+                caption: 'Cotización',
+                width: 100,
+                encodeHtml: false
+            }, {
+                dataField: 'FEC_DOCU',
+                caption: 'Fecha',
+                width: 150,
+                dataType: 'date',
+                format: 'shortDate',
+                encodeHtml: false
+            }, {
+                dataField: 'FEC_VENC',
+                caption: 'Vencimiento',
+                encodeHtml: false,
+                dataType: 'date',
+                format: 'shortDate',
+                width: 150
+            }, {
+                dataField: 'ALF_NOMB',
+                caption: 'Cliente',
+                encodeHtml: false,
+                width: 450,
+                alignment: 'left'
+            }, {
+                dataField: 'NUM_TOTA',
+                caption: 'Total',
+                encodeHtml: false,
+                width: 150,
+                format: 'fixedPoint',
+                precision: 2,
+                alignment: 'right'
+            }, {
+                dataField: 'ALF_ESTA',
+                caption: 'Estado',
+                encodeHtml: false,
+                alignment: 'left'
+            }],
+            filterRow: {
+                visible: true
+            },
+            sorting: {
+                mode: 'multiple'
+            },
+            paging: {
+                pageSize: 10
+            },
+            pager: {
+                    showPageSizeSelector: true,
+                    allowedPageSizes: [10, 20, 50, 100]
+            },
+            summary: {
+                    totalItems: [{
+                        column: 'INF_GENE',
+                        summaryType: 'count'
+                    }]
+            },
+            height: hgt,
+            showBorders: true,
+            showRowLines: true,
+            selection: { mode: 'single' },
+            hoverStateEnabled: true,
+            loadPanel: { enabled: false }
+         }"></div>
+
+    <div id="popupQuote" dx-popup="{ title: 'Cotización',
+                                    showTitle: true,
+                                    contentTemplate: 'content',
+                                    buttons: buttonItems,
+                                    width: 1000,
+                                    height: 800,
+                                    onShown: initviewNew }">
+        <div data-options="dxTemplate:{ name:'content' }">
+            <div class="ContentTable">
+                <div>
+                    <div class="ContentLabelIFree" style="width:690px;">
+                        <div>
+                            <div class="ContentLabelIFree" style="width: 150px; text-align: right;">
+                                Codigo cliente:
+                            </div>
+                            <div class="ContentInputI">
+                                <div id="txtCOD_SOCI_NEGO" dx-text-box="{width:150,readOnly:true}"></div>
+                            </div>
+                            <div class="ContentInputI">
+                                <div id="cmdSearchCustomer" dx-button="{
+                                         hint: 'Bbuscar',
+                                         text:'...',
+                                         onClick: GetSearchQuote,
+                                         width: 50,
+                                         height:30
+                                         }"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="ContentLabelIFree" style="width: 150px; text-align: right;">
+                                Cliente:
+                            </div>
+                            <div class="ContentInputI">
+                                <div id="txtALF_NOMB" dx-text-box="{width:500}"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="ContentLabelIFree" style="width: 150px; text-align: right;">
+                                Ejecutivo comercial:
+                            </div>
+                            <div class="ContentInputI">
+                                <div id="cmbCOD_EJEC_COME" dx-select-box="{
+                                                                             displayExpr: 'ALF_NOMB',
+                                                                             valueExpr: 'COD_SOCI_NEGO',
+                                                                             width: '500',
+                                                                             placeholder: 'Seleccionar',
+                                                                             searchEnabled: true,
+                                                                             searchMode: 'contains',
+                                                                             showClearButton: true
+                                                                             }"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="ContentLabelIFree" style="width: 150px; text-align: right;">
+                                Dirección:
+                            </div>
+                            <div class="ContentInputI">
+                                <div id="txtALF_DIRE_FISC" dx-text-box="{width:500,readOnly:true}"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="ContentLabelIFree" style="width: 150px; text-align: right;">
+                                Teléfono:
+                            </div>
+                            <div class="ContentInputI">
+                                <div id="txtALF_TELE" dx-text-box="{width:300,readOnly:true}"></div>
+                            </div>
+                            <div class="ContentLabelIFree" style="width: 60px; text-align: right;">
+                                Fax:
+                            </div>
+                            <div class="ContentInputI">
+                                <div id="txtALF_FAXX" dx-text-box="{width:129,readOnly:true}"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ContentLabelIFree" style="width:300px;">
+                        <div>
+                            <div class="ContentLabelIFree" style="width: 145px; text-align: right;">
+                                Correlativo:
+                            </div>
+                            <div class="ContentInputI">
+                                <div id="txtNUM_COTI" dx-text-box="{width:139,readOnly:true}"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="ContentLabelIFree" style="width: 145px; text-align: right;">
+                                Fecha registro:
+                            </div>
+                            <div class="ContentInputI">
+                                <div id="deFEC_REGI" dx-date-box="{width:139,readOnly:true}"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="ContentLabelIFree" style="width: 145px; text-align: right; ">
+                                Fecha documento:
+                            </div>
+                            <div class="ContentInputI">
+                                <div id="deFEC_DOCU" dx-date-box="{width:139}"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="ContentLabelIFree" style="width: 145px; text-align: right; ">
+                                Fecha vencimiento:
+                            </div>
+                            <div class="ContentInputI">
+                                <div id="deFEC_VENC" dx-date-box="{width:139}"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="ContentLabelIFree" style="width: 145px; text-align: right;">
+                                Estado:
+                            </div>
+                            <div class="ContentInputI">
+                                <div id="txtALF_ESTA" dx-text-box="{width:139,readOnly:true}"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="ContentLabelIFree">
+                        <div class="ContentLabelIFree" style="width: 150px; text-align: right;">
+                            Contacto:
+                        </div>
+                        <div class="ContentInputI">
+                            <div id="txtALF_CONT" dx-text-box="{width:816,readOnly:true}"></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="ContentLabelIFree">
+                        <div class="ContentLabelIFree" style="width: 150px; text-align: right;">
+                            Atención:
+                        </div>
+                        <div class="ContentInputI">
+                            <div id="txtALF_ATEN" dx-text-box="{width:816}"></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="ContentLabelIFree">
+                        <div class="ContentLabelIFree" style="width: 150px; text-align: right;">
+                            Motivo:
+                        </div>
+                        <div class="ContentInputI">
+                            <div id="cmbCOD_MOTI" dx-select-box="{
+                                                                    displayExpr: 'ALF_MOTI',
+                                                                    valueExpr: 'COD_MOTI',
+                                                                    width: '362',
+                                                                    placeholder: 'Seleccionar',
+                                                                    searchEnabled: true,
+                                                                    searchMode: 'contains',
+                                                                    showClearButton: true
+                                                                    }"></div>
+                        </div>
+                        <div class="ContentLabelIFree" style="width: 80px; text-align: right;">
+                            Sucursal:
+                        </div>
+                        <div class="ContentInputI">
+                            <div id="cmbCOD_SUCU" dx-select-box="{
+                                                                    displayExpr: 'ALF_SUCU',
+                                                                    valueExpr: 'COD_SOCI_NEGO_SUCU',
+                                                                    width: '362',
+                                                                    placeholder: 'Seleccionar',
+                                                                    searchEnabled: true,
+                                                                    searchMode: 'contains',
+                                                                    showClearButton: true
+                                                                    }"></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="ContentLabelIFree">
+                        <div class="ContentLabelIFree" style="width: 150px; text-align: right;">
+                            Descuento(%):
+                        </div>
+                        <div class="ContentInputI">
+                            <div id="txtNUM_DESC" dx-text-box="{width:70,value:0,attr:{style:'text-align: right;'}}"></div>
+                        </div>
+                        <div class="ContentLabelIFree" style="width: 80px; text-align: right;">
+                            Moneda:
+                        </div>
+                        <div class="ContentInputI">
+                            <div id="cmbCOD_MONE" dx-select-box="{
+                                                                    displayExpr: 'ALF_MONE',
+                                                                    valueExpr: 'COD_MONE',
+                                                                    width: '200',
+                                                                    placeholder: 'Seleccionar',
+                                                                    searchEnabled: true,
+                                                                    searchMode: 'contains',
+                                                                    showClearButton: true
+                                                                    }"></div>
+                        </div>
+                        <div class="ContentLabelIFree" style="width: 80px; text-align: right;">
+                            Proyecto:
+                        </div>
+                        <div class="ContentInputI">
+                            <div id="cmbCOD_PROY" dx-select-box="{
+                                                                    displayExpr: 'ALF_PROY',
+                                                                    valueExpr: 'COD_PROY',
+                                                                    width: '362',
+                                                                    placeholder: 'Seleccionar',
+                                                                    searchEnabled: true,
+                                                                    searchMode: 'contains',
+                                                                    showClearButton: true
+                                                                    }"></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="ContentLabelIFree">
+                        <div class="ContentLabelIFree">
+                            <div id="gdvDetail"
+                                 dx-data-grid="{
+                                    height: 200,
+                                    width:970
+                                 }"></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="ContentLabelIFree" style="width:800px;">
+                        <div class="ContentLabelIFree" style="width:200px;">
+                            Observaciones
+                        </div>
+                        <div class="ContentLabelIFree" style="width:450px;">
+                            Condiciones comerciales
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="ContentLabelIFree" style="width:800px;">
+                        <div>
+                            <div class="ContentLabelIFree">
+                                <div id="txtALF_OBSE" dx-text-area="{width:200,height:70}"></div>
+                            </div>
+                            <div class="ContentLabelIFree">
+                                <div id="txtALF_COND_COME" dx-text-area="{width:550,height:70}"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="ContentLabelIFree">
+                                <div id="txtALF_SONN" dx-text-box="{width:762,value:'SON:',readOnly:true}"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ContentLabelIFree">
+                        <div>
+                            <div class="ContentLabelIFree" style="width:100px;text-align:right;">
+                                Subtotal:
+                            </div>
+                            <div class="ContentLabelIFree">
+                                <div id="txtNUM_SUBT" dx-text-box="{width:100,readOnly:true,attr:{style:'text-align: right;'}}"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="ContentLabelIFree">
+                                <div id="chkIGV" dx-check-box="{width:25,value:true}"></div>
+                            </div>
+                            <div class="ContentLabelIFree" style="width: 100px; text-align: right;">
+                                IGV:
+                            </div>
+                            <div class="ContentLabelIFree">
+                                <div id="txtNUM_IGVV" dx-text-box="{width:100,readOnly:true,attr:{style:'text-align: right;'}}"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="ContentLabelIFree" style="width: 100px; text-align: right;">
+                                Total:
+                            </div>
+                            <div class="ContentLabelIFree">
+                                <div id="txtNUM_TOTA" dx-text-box="{width:100,readOnly:true,attr:{style:'text-align: right;'}}"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
